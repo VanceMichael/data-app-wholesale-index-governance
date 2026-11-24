@@ -1,0 +1,9 @@
+[
+  {
+    "id": "existing-A-10",
+    "subscription": "subA",
+    "version": "2026-10-10-final",
+    "received_day": 10.8,
+    "acknowledged": false
+  }
+]

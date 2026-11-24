@@ -1,0 +1,30 @@
+[
+  {
+    "id": "b1",
+    "base_day": 1,
+    "weights": {
+      "p1": 0.6,
+      "p3": 0.4
+    },
+    "regions": {
+      "东区": 0.5,
+      "西区": 0.5
+    },
+    "max_missing_weight": 0.15,
+    "predecessor": ""
+  },
+  {
+    "id": "b2",
+    "base_day": 9,
+    "weights": {
+      "p4": 0.5,
+      "p3": 0.5
+    },
+    "regions": {
+      "东区": 0.6,
+      "西区": 0.4
+    },
+    "max_missing_weight": 0.15,
+    "predecessor": "b1"
+  }
+]

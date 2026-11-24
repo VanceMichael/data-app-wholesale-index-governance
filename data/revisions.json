@@ -1,0 +1,26 @@
+[
+  {
+    "id": "r1",
+    "quote": "q10-3-1",
+    "decision": "采用",
+    "price_cents": 320,
+    "volume": 40,
+    "known_day": 16
+  },
+  {
+    "id": "r2",
+    "quote": "q10-3-4",
+    "decision": "采用",
+    "price_cents": 1800,
+    "volume": 10,
+    "known_day": 16
+  },
+  {
+    "id": "r3",
+    "quote": "q11-1-2",
+    "decision": "退回",
+    "price_cents": 0,
+    "volume": 0,
+    "known_day": 12
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "existing-A-10",
+    "payload": {
+      "subscription": "subA",
+      "version": "2026-10-10-final",
+      "content": "机构保存的原业务说明"
+    },
+    "accepted_at": "2026-10-10T14:00:00Z"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "subA",
+    "basket": "b2",
+    "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "maturity": "暂估及定稿",
+    "recipient": "采购甲"
+  },
+  {
+    "id": "subB",
+    "basket": "b1",
+    "weekdays": [
+      1,
+      3,
+      5
+    ],
+    "maturity": "只定稿",
+    "recipient": "采购乙"
+  }
+]

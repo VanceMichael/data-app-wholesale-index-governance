@@ -1,0 +1,242 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "tables": {
+    "products": {
+      "description": "可换算单位与规格定义",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "商品规格"
+        },
+        "name": {
+          "type": "string",
+          "description": "品名"
+        },
+        "grade": {
+          "type": "string",
+          "description": "等级"
+        },
+        "unit": {
+          "type": "string",
+          "description": "单位"
+        },
+        "kg_per_unit": {
+          "type": "number",
+          "description": "每单位千克"
+        }
+      },
+      "refs": {}
+    },
+    "markets": {
+      "description": "报价市场与地区",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "市场"
+        },
+        "region": {
+          "type": "string",
+          "description": "地区"
+        },
+        "report_days": {
+          "type": "array",
+          "description": "正常周几报送"
+        }
+      },
+      "refs": {}
+    },
+    "quotes": {
+      "description": "价格为每报告单位分；交易量为报告单位数",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "报价"
+        },
+        "market": {
+          "type": "string",
+          "description": "市场"
+        },
+        "product": {
+          "type": "string",
+          "description": "商品"
+        },
+        "day": {
+          "type": "integer",
+          "description": "日序"
+        },
+        "price_cents": {
+          "type": "integer",
+          "description": "单价"
+        },
+        "volume": {
+          "type": "number",
+          "description": "交易量"
+        },
+        "state": {
+          "type": "string",
+          "description": "报送状态"
+        },
+        "known_day": {
+          "type": "number",
+          "description": "知悉日序"
+        }
+      },
+      "refs": {
+        "market": "markets.id",
+        "product": "products.id"
+      }
+    },
+    "substitutions": {
+      "description": "规格接续须有明确审批和重叠日",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "关系"
+        },
+        "old": {
+          "type": "string",
+          "description": "旧规格"
+        },
+        "new": {
+          "type": "string",
+          "description": "新规格"
+        },
+        "overlap_days": {
+          "type": "array",
+          "description": "指定重叠日"
+        },
+        "state": {
+          "type": "string",
+          "description": "审批状态"
+        },
+        "known_day": {
+          "type": "number",
+          "description": "知悉日"
+        }
+      },
+      "refs": {
+        "old": "products.id",
+        "new": "products.id"
+      }
+    },
+    "baskets": {
+      "description": "篮子定义；权重不从新闻获取",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "篮子"
+        },
+        "base_day": {
+          "type": "integer",
+          "description": "基期日"
+        },
+        "weights": {
+          "type": "object",
+          "description": "商品权重"
+        },
+        "regions": {
+          "type": "object",
+          "description": "地区权重"
+        },
+        "max_missing_weight": {
+          "type": "number",
+          "description": "最大缺失权重"
+        },
+        "predecessor": {
+          "type": "string",
+          "description": "前序篮子或空"
+        }
+      },
+      "refs": {}
+    },
+    "subscriptions": {
+      "description": "机构采用篮子、日历与暂估规则",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "订阅"
+        },
+        "basket": {
+          "type": "string",
+          "description": "篮子"
+        },
+        "weekdays": {
+          "type": "array",
+          "description": "接收周几"
+        },
+        "maturity": {
+          "type": "string",
+          "description": "暂估及定稿或只定稿"
+        },
+        "recipient": {
+          "type": "string",
+          "description": "接收机构"
+        }
+      },
+      "refs": {
+        "basket": "baskets.id"
+      }
+    },
+    "revisions": {
+      "description": "对旧报价的补报和复核，不预置指数",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "复核"
+        },
+        "quote": {
+          "type": "string",
+          "description": "报价"
+        },
+        "decision": {
+          "type": "string",
+          "description": "采用或退回"
+        },
+        "price_cents": {
+          "type": "integer",
+          "description": "更正价"
+        },
+        "volume": {
+          "type": "number",
+          "description": "更正量"
+        },
+        "known_day": {
+          "type": "number",
+          "description": "知悉日序"
+        }
+      },
+      "refs": {
+        "quote": "quotes.id"
+      }
+    },
+    "received_deliveries": {
+      "description": "合作端已有收件记录；本地可能未确认",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "业务交付编号"
+        },
+        "subscription": {
+          "type": "string",
+          "description": "订阅"
+        },
+        "version": {
+          "type": "string",
+          "description": "版本"
+        },
+        "received_day": {
+          "type": "number",
+          "description": "接收日"
+        },
+        "acknowledged": {
+          "type": "boolean",
+          "description": "本地已确认"
+        }
+      },
+      "refs": {
+        "subscription": "subscriptions.id"
+      }
+    }
+  }
+}
