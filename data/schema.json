@@ -237,6 +237,28 @@
       "refs": {
         "subscription": "subscriptions.id"
       }
+    },
+    "calendar": {
+      "description": "机构日历对应演练日期；日序从十月一日开始",
+      "columns": {
+        "id": {
+          "type": "string",
+          "description": "日期编号"
+        },
+        "day": {
+          "type": "integer",
+          "description": "日序"
+        },
+        "date": {
+          "type": "string",
+          "description": "自然日期"
+        },
+        "weekday": {
+          "type": "integer",
+          "description": "周一为一"
+        }
+      },
+      "refs": {}
     }
   }
 }
